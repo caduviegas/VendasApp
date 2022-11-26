@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/leftBorder"
+            android:layout_width="@dimen/size_4"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/blue"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/margin_16"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/margin_16"/>
+
+
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Venda de Periféricos"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/margin_8"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/leftGuide"
+            android:textStyle="bold"
+            android:textSize="@dimen/font_18"/>
+
+        <ImageView
+            android:id="@+id/icValueOfProduct"
+            android:layout_width="@dimen/size_18"
+            android:layout_height="@dimen/size_18"
+            app:layout_constraintStart_toStartOf="@id/leftGuide"
+            app:layout_constraintTop_toTopOf="@id/tvProductValue"
+            app:layout_constraintBottom_toBottomOf="@id/tvProductValue"
+            app:tint="@color/light_gray"
+            android:src="@drawable/ic_money"/>
+
+        <TextView
+            android:id="@+id/tvProductValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="R$ 24,00"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/icValueOfProduct"
+            app:layout_constraintTop_toBottomOf="@id/tvProductName"
+            android:layout_marginStart="@dimen/margin_4"
+            android:paddingBottom="@dimen/padding_8"
+            android:paddingTop="@dimen/padding_8"
+            />
+
+        <ImageView
+            android:id="@+id/icCalendar"
+            android:layout_width="@dimen/size_18"
+            android:layout_height="@dimen/size_18"
+            android:layout_marginStart="@dimen/margin_10"
+            app:layout_constraintStart_toEndOf="@id/tvProductValue"
+            app:layout_constraintTop_toTopOf="@id/tvProductValue"
+            app:layout_constraintBottom_toBottomOf="@id/tvProductValue"
+            app:tint="@color/light_gray"
+            android:src="@drawable/ic_calendar"/>
+
+        <TextView
+            android:id="@+id/tvVendaDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="16/11/2022"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@id/icCalendar"
+            app:layout_constraintTop_toTopOf="@id/tvProductValue"
+            app:layout_constraintBottom_toBottomOf="@id/tvProductValue"
+            android:layout_marginStart="@dimen/margin_4"
+            android:paddingBottom="@dimen/padding_8"
+            android:paddingTop="@dimen/padding_8"
+            />
+
+        <TextView
+            android:id="@+id/tvProductQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2 produtos"
+            app:layout_constraintEnd_toEndOf="@id/rightGuide"
+            app:layout_constraintTop_toTopOf="@id/tvProductValue"
+            app:layout_constraintBottom_toBottomOf="@id/tvProductValue"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

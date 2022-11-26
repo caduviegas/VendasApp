@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_venda"
+        app:layout_constraintBottom_toBottomOf="@id/middleGuide"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/headerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_20"
+        android:text="Vendas"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/margin_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="@dimen/padding_4"/>
+
+    <ImageButton
+        android:id="@+id/headerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="@id/headerTitle"
+        app:layout_constraintBottom_toBottomOf="@id/headerTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/margin_8"/>
+
+    <include
+        android:id="@+id/contentVendas"
+        layout="@layout/content_vendas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_12"
+        android:layout_marginEnd="@dimen/margin_12"
+        android:layout_marginTop="@dimen/margin_32"
+        app:layout_constraintTop_toBottomOf="@id/headerTitle"/>
+
+    <View
+        android:id="@+id/middleGuide"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="@id/contentVendas"
+        app:layout_constraintBottom_toBottomOf="@id/contentVendas"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvVendas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/contentVendas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginStart="@dimen/margin_12"
+        android:layout_marginEnd="@dimen/margin_12"
+        tools:listitem="@layout/row_venda"
+        tools:itemCount="15"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
