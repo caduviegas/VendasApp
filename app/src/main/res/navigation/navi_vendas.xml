@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi_vendas"
+    app:startDestination="@id/vendas">
+
+    <fragment
+        android:id="@+id/vendas"
+        android:name="com.innaval.vendasapp.presentation.ui.VendaFragment"
+        android:label="Lista de Vendas"
+        tools:layout="@layout/fragment_venda">
+
+        <action
+            android:id="@+id/callNovaVenda"
+            app:destination="@id/novaVenda" />
+
+        <action
+            android:id="@+id/callDetalhesVenda"
+            app:destination="@id/detalhesVenda" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/novaVenda"
+        android:name="com.innaval.vendasapp.presentation.ui.NovaVendaFragment"
+        android:label="Nova Venda"
+        tools:layout="@layout/fragment_nova_venda">
+
+        <action
+            android:id="@+id/callNovoDetalhesVenda"
+            app:destination="@id/detalhesVenda" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detalhesVenda"
+        android:name="com.innaval.vendasapp.presentation.ui.ProdutoFragment"
+        android:label="Detalhes das Vendas"
+        tools:layout="@layout/fragment_produto">
+
+        <action
+            android:id="@+id/callNovoProduto"
+            app:destination="@id/novoProduto" />
+
+        <argument
+            android:name="Venda"
+            app:argType="com.innaval.vendasapp.domain.Venda"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/novoProduto"
+        android:name="com.innaval.vendasapp.presentation.ui.NovoProdutoFragment"
+        android:label="Novo Produto"
+        tools:layout="@layout/fragment_novo_produto">
+
+        <argument
+            android:name="Venda"
+            app:argType="com.innaval.vendasapp.domain.Venda"/>
+
+    </fragment>
+
+
+</navigation>

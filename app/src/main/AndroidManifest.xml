@@ -13,7 +13,7 @@
         android:theme="@style/Theme.VendasApp"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".VendasActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -12,5 +12,7 @@ data class Venda(
     @SerializedName("data_criacao")
     val dataCriacao: Date,
     @SerializedName("descricao")
-    val descricao: String
+    val descricao: String,
+    @SerializedName("nome_cliente")
+    val nomeCliente: String
 ):Parcelable

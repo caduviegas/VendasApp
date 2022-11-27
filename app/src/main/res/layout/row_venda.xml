@@ -36,7 +36,7 @@
 
 
         <TextView
-            android:id="@+id/tvProductName"
+            android:id="@+id/tvVendaName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Venda de Periféricos"
@@ -64,7 +64,7 @@
             tools:text="R$ 24,00"
             android:gravity="center"
             app:layout_constraintStart_toEndOf="@id/icValueOfProduct"
-            app:layout_constraintTop_toBottomOf="@id/tvProductName"
+            app:layout_constraintTop_toBottomOf="@id/tvVendaName"
             android:layout_marginStart="@dimen/margin_4"
             android:paddingBottom="@dimen/padding_8"
             android:paddingTop="@dimen/padding_8"

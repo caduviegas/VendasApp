@@ -4,9 +4,11 @@ import com.innaval.vendasapp.domain.Venda
 
 interface VendasRepository {
 
-    fun salvarVendas()
+    suspend fun salvarVendas()
 
-    fun novaVenda(): Venda
+    suspend fun novaVenda(): Venda
+
+   suspend fun listarVendas():List<Venda>
 
 
 
