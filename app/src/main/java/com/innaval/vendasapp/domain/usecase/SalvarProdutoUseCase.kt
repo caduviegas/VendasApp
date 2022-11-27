@@ -1,13 +1,14 @@
 package com.innaval.vendasapp.domain.usecase
 
 import com.innaval.vendasapp.data.repository.VendasRepository
+import com.innaval.vendasapp.domain.Produto
 import com.innaval.vendasapp.domain.Venda
 
-class NovaVendaUseCase {
+class SalvarProdutoUseCase {
 
     lateinit var repository: VendasRepository
 
-   suspend fun executar(): Venda {
-        return repository.novaVenda()
+    suspend operator fun invoke(produto: Produto): Produto {
+        return repository.salvarProduto(produto)
     }
 }

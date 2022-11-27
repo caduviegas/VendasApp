@@ -7,7 +7,7 @@ class SalvarVendaUseCase {
 
     lateinit var repository: VendasRepository
 
-   suspend fun executar(venda: Venda){
-        return repository.salvarVendas()
+   suspend operator fun invoke(venda: Venda):Venda{
+        return repository.salvarVenda(venda)
     }
 }
