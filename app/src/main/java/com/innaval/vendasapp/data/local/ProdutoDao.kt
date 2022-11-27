@@ -13,5 +13,5 @@ interface ProdutoDao {
     fun findAll(vendaId: Long): List<Produto>
 
     @Insert
-    fun insert(produto: Produto)
+    fun insert(produto: Produto):Long
 }

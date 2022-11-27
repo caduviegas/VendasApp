@@ -13,10 +13,14 @@ data class Venda(
     @SerializedName("id")
     @PrimaryKey(autoGenerate = true)
     val id: Long,
+    @SerializedName("preco")
+    val preco: Double,
+    @SerializedName("quantidade_produtos_da_venda")
+    val quantidadeProdutosVenda: Long,
     @SerializedName("data_criacao")
     val dataCriacao: Date,
     @SerializedName("descricao")
     val descricao: String,
     @SerializedName("nome_cliente")
     val nomeCliente: String
-):Parcelable
+) : Parcelable

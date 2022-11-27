@@ -7,20 +7,21 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.innaval.vendasapp.R
 import com.innaval.vendasapp.domain.Venda
+import org.w3c.dom.Text
 
 
-class VendaAdapter(private val vendas: List<Venda>) :
+class VendaAdapter(private val vendas: List<Venda>, private val vendaClick:(Venda) -> Unit) :
     RecyclerView.Adapter<VendaAdapter.VendaViewHolder>() {
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VendaViewHolder {
-            val view =
-                LayoutInflater.from(parent.context).inflate(R.layout.row_venda,parent,false)
-            return VendaViewHolder(view)
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VendaViewHolder {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.row_venda, parent, false)
+        return VendaViewHolder(view)
+    }
 
     override fun onBindViewHolder(holder: VendaViewHolder, position: Int) {
         val venda = vendas[position]
-        holder.bind(venda)
+        holder.bind(venda,vendaClick)
     }
 
     override fun getItemCount(): Int {
@@ -28,9 +29,21 @@ class VendaAdapter(private val vendas: List<Venda>) :
     }
 
     inner class VendaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(venda: Venda){
+        fun bind(venda: Venda, vendaClick: (Venda) -> Unit) {
+            itemView.setOnClickListener {
+                vendaClick(venda)
+            }
             val tvTitulo: TextView = itemView.findViewById(R.id.tvVendaName)
             tvTitulo.text = venda.descricao
+
+            val tvVendaValue: TextView = itemView.findViewById(R.id.tvProductValue)
+            tvVendaValue.text = venda.preco.toString()
+
+            val tvVendaDate: TextView = itemView.findViewById(R.id.tvVendaDate)
+            tvVendaDate.text = venda.dataCriacao.toString()
+
+            val tvProductQuantity: TextView = itemView.findViewById(R.id.tvProductQuantity)
+            tvProductQuantity.text = venda.quantidadeProdutosVenda.toString()
         }
     }
 

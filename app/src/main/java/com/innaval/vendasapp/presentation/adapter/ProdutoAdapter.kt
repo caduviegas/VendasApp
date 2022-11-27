@@ -3,6 +3,7 @@ package com.innaval.vendasapp.presentation.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.innaval.vendasapp.R
 import com.innaval.vendasapp.domain.Produto
@@ -28,6 +29,14 @@ class ProdutoAdapter(private val produtos: List<Produto>) :
     inner class ProdutoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(produto: Produto){
 
+            val tvProductName: TextView = itemView.findViewById(R.id.tvProductName)
+            tvProductName.text =produto.nome
+
+            val tvProductValue: TextView = itemView.findViewById(R.id.tvProductValue)
+            tvProductValue.text = produto.preco.toString()
+
+            val tvProductQuantity: TextView = itemView.findViewById(R.id.tvProductQuantity)
+            tvProductQuantity.text = produto.quantidade.toString()
         }
     }
 

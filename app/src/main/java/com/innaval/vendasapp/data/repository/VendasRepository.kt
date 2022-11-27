@@ -5,12 +5,12 @@ import com.innaval.vendasapp.domain.Venda
 
 interface VendasRepository {
 
-    suspend fun salvarVenda(venda: Venda): Venda
+    suspend fun salvarVenda(venda: Venda): Long
 
-   suspend fun listarVendas():List<Venda>
+    suspend fun listarVendas(): List<Venda>
 
-    suspend fun salvarProduto(produto: Produto): Produto
+    suspend fun salvarProduto(produto: Produto): Long
 
-    suspend fun listarProdutos(vendaId:Int):List<Produto>
+    suspend fun listarProdutos(vendaId: Long): List<Produto>
 
 }
