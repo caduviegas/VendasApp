@@ -24,6 +24,7 @@ class DetalheVendaFragment:BaseFragment(R.layout.fragment_detalhe_venda), Vendas
     private val viewModel: ProdutoViewModel by viewModel()
     private lateinit var botaoNovaVenda: ImageButton
     private lateinit var titulo:TextView
+    private lateinit var tituloCliente:TextView
     private lateinit var recyclerView: RecyclerView
     private lateinit var somaProdutos: TextView
     private lateinit var quantidadeVendas: TextView
@@ -42,6 +43,7 @@ class DetalheVendaFragment:BaseFragment(R.layout.fragment_detalhe_venda), Vendas
         recyclerView = view.findViewById(R.id.rvVendas)
         somaProdutos = view.findViewById(R.id.tvValorTotal)
         quantidadeVendas = view.findViewById(R.id.tvTotalVendas)
+        tituloCliente = view.findViewById(R.id.headerTitleCliente)
         titulo = view.findViewById(R.id.headerTitle)
     }
 
@@ -63,15 +65,16 @@ class DetalheVendaFragment:BaseFragment(R.layout.fragment_detalhe_venda), Vendas
         }
     }
 
-    private fun loadList(produto:List<Produto>){
-        adapter = ProdutoAdapter(produto)
+    private fun loadList(detalheVenda:List<Produto>){
+        adapter = ProdutoAdapter(detalheVenda)
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
-        val preco = produto.sumOf { it.preco * it.quantidade }
+        val preco = detalheVenda.sumOf { it.preco * it.quantidade }
         somaProdutos.text = preco.formatCurrencyBR()
-        quantidadeVendas.text = produto.size.toString()
+        quantidadeVendas.text = detalheVenda.size.toString()
         titulo.text = args.venda.descricao
+        tituloCliente.text = args.venda.nomeCliente
     }
 
     override fun backPressed() {

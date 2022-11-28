@@ -50,6 +50,9 @@ class VendaAdapter(private val vendas: List<Venda>, private val vendaClick: (Ven
                 venda.quantidadeProdutosVenda.toInt()
             )
             tvProductQuantity.text = "${venda.quantidadeProdutosVenda} $produtoPlurals"
+
+            val tvNomeCliente: TextView = itemView.findViewById(R.id.tvNomeCliente)
+            tvNomeCliente.text = venda.nomeCliente
         }
     }
 

@@ -12,7 +12,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 
 class ProdutoViewModel(
-    private val listarProdutosUseCase: ListarProdutosUseCase,
+    private val listarDetalheVendaUseCase: ListarProdutosUseCase,
     private val salvarProdutoUseCase: SalvarProdutoUseCase,
     private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
@@ -28,14 +28,20 @@ class ProdutoViewModel(
 
         viewModelScope.launch(dispatcher) {
             try {
-                _produtos.postValue(State.Sucesso(listarProdutosUseCase(vendaId)))
+                _produtos.postValue(State.Sucesso(listarDetalheVendaUseCase(vendaId)))
             } catch (e: Exception) {
                 _produtos.postValue(State.Erro())
             }
         }
     }
 
-    fun salvarProduto(nome: String, vendaId: Long, preco: Double, quantidade: Double, unidade: String) {
+    fun salvarProduto(
+        nome: String,
+        vendaId: Long,
+        preco: Double,
+        quantidade: Double,
+        unidade: String
+    ) {
         _salvarProduto.value = State.Carregando()
 
         viewModelScope.launch(dispatcher) {

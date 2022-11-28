@@ -9,7 +9,7 @@ interface VendasRepository {
 
     suspend fun listarVendas(): List<Venda>
 
-    suspend fun salvarProduto(produto: Produto): Long
+    suspend fun salvarProduto(detalheVenda: Produto): Long
 
     suspend fun listarProdutos(vendaId: Long): List<Produto>
 

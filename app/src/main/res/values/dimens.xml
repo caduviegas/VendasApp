@@ -26,4 +26,5 @@
     <dimen name="margin_16">16dp</dimen>
     <dimen name="margin_32">32dp</dimen>
     <dimen name="margin_60">60dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
 </resources>

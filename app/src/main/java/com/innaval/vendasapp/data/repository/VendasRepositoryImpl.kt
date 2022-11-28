@@ -16,18 +16,18 @@ class VendasRepositoryImpl(private val vendaDao: VendaDao, private val produtoDa
         return vendaDao.findAll()
     }
 
-    override suspend fun salvarProduto(produto: Produto): Long {
-        val venda = vendaDao.findById(produto.vendaId)
+    override suspend fun salvarProduto(detalheVenda: Produto): Long {
+        val venda = vendaDao.findById(detalheVenda.vendaId)
         val vendaAtualizada = Venda(
             venda.id,
-            venda.preco + (produto.preco * produto.quantidade),
+            venda.preco + (detalheVenda.preco * detalheVenda.quantidade),
             venda.quantidadeProdutosVenda + 1,
             venda.dataCriacao,
             venda.descricao,
             venda.nomeCliente
         )
         vendaDao.update(vendaAtualizada)
-        return produtoDao.insert(produto)
+        return produtoDao.insert(detalheVenda)
     }
 
     override suspend fun listarProdutos(vendaId: Long): List<Produto> {

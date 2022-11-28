@@ -1,6 +1,5 @@
 package com.innaval.vendasapp.di.modules
 
-import com.innaval.vendasapp.data.repository.VendasRepositoryImpl
 import com.innaval.vendasapp.domain.usecase.ListarProdutosUseCase
 import com.innaval.vendasapp.domain.usecase.ListarVendasUseCase
 import com.innaval.vendasapp.domain.usecase.SalvarProdutoUseCase

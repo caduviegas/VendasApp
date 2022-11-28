@@ -27,6 +27,20 @@
         app:layout_constraintTop_toTopOf="parent"
         android:padding="@dimen/padding_4"/>
 
+    <TextView
+        android:id="@+id/headerTitleCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/font_20"
+        tools:text="Cliente"
+        android:visibility="visible"
+        android:layout_marginTop="@dimen/margin_6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerTitle"
+        app:layout_constraintBottom_toTopOf="@id/contentProduto" />
+
     <ImageButton
         android:id="@+id/headerButton"
         android:layout_width="wrap_content"

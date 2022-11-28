@@ -42,9 +42,20 @@ class VendaViewModel(
 
         viewModelScope.launch(dispatcher) {
             try {
-                _salvarVenda.postValue(State.Sucesso(salvarVendaUseCase.invoke(
-                    Venda(0, Date(), descricao, nomeCliente)
-                )))
+                _salvarVenda.postValue(
+                    State.Sucesso(
+                        salvarVendaUseCase(
+                            Venda(
+                                id = 0,
+                                preco = 0.0,
+                                quantidadeProdutosVenda = 0,
+                                dataCriacao = Date(),
+                                descricao = descricao,
+                                nomeCliente = nomeCliente
+                            )
+                        )
+                    )
+                )
 
             } catch (e: Exception) {
                 _salvarVenda.postValue(State.Erro())

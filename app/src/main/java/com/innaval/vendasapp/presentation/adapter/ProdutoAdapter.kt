@@ -7,10 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.innaval.vendasapp.R
 import com.innaval.vendasapp.domain.Produto
-import com.innaval.vendasapp.domain.Venda
 import com.innaval.vendasapp.presentation.utils.formatCurrencyBR
 
-class ProdutoAdapter(private val produtos: List<Produto>) :
+class ProdutoAdapter(private val detalheVendas: List<Produto>) :
     RecyclerView.Adapter<ProdutoAdapter.ProdutoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProdutoViewHolder {
@@ -20,25 +19,25 @@ class ProdutoAdapter(private val produtos: List<Produto>) :
     }
 
     override fun onBindViewHolder(holder: ProdutoViewHolder, position: Int) {
-        val produto = produtos[position]
+        val produto = detalheVendas[position]
         holder.bind(produto)
     }
 
     override fun getItemCount(): Int {
-        return produtos.size
+        return detalheVendas.size
     }
 
     inner class ProdutoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(produto: Produto){
+        fun bind(detalheVenda: Produto){
 
             val tvProductName: TextView = itemView.findViewById(R.id.tvProductName)
-            tvProductName.text =produto.nome
+            tvProductName.text =detalheVenda.nome
 
             val tvProductValue: TextView = itemView.findViewById(R.id.tvProductValue)
-            tvProductValue.text = produto.preco.formatCurrencyBR()
+            tvProductValue.text = detalheVenda.preco.formatCurrencyBR()
 
             val tvProductQuantity: TextView = itemView.findViewById(R.id.tvProductQuantity)
-            tvProductQuantity.text = "${produto.quantidade} ${produto.unidade}"
+            tvProductQuantity.text = "${detalheVenda.quantidade} ${detalheVenda.unidade}"
         }
     }
 
