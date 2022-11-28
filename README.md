@@ -1,6 +1,6 @@
 # VendasApp
 
-## Synopsis
+## Sinopse
  Aplicação Android para Gerenciamento de Vendas
 
 ## Requerimentos
@@ -11,7 +11,7 @@
 - Na tela deve aparecer a quantidade total de itens
 - Na tela deve aparecer o valor total do pedido
 
-## Project development
+## Desenvolvimento do Projeto
 <img src="img/TelaVenda.png" width="200">
 
  A primeira tela deste aplicativo é a tela de vendas. Esta tela informa o número de vendas realizadas, o total em R$ das vendas e nela é possivel adicionar uma nova venda.
