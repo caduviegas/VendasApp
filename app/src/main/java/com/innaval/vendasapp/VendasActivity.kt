@@ -18,8 +18,4 @@ class VendasActivity : AppCompatActivity() {
         graph.setStartDestination(R.id.vendas)
         host.navController.graph = graph
     }
-
-    override fun onBackPressed() {
-
-    }
 }

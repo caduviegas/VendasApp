@@ -5,7 +5,7 @@ import com.innaval.vendasapp.domain.Venda
 
 class SalvarVendaUseCase(private val repository: VendasRepository ) {
 
-   suspend operator fun invoke(venda: Venda):Long{
+   suspend operator fun invoke(venda: Venda):Venda{
         return repository.salvarVenda(venda)
     }
 }

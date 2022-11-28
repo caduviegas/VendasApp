@@ -7,10 +7,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.innaval.vendasapp.R
 import com.innaval.vendasapp.domain.Venda
+import com.innaval.vendasapp.presentation.utils.formatCurrencyBR
+import com.innaval.vendasapp.presentation.utils.formatDateBR
 import org.w3c.dom.Text
 
 
-class VendaAdapter(private val vendas: List<Venda>, private val vendaClick:(Venda) -> Unit) :
+class VendaAdapter(private val vendas: List<Venda>, private val vendaClick: (Venda) -> Unit) :
     RecyclerView.Adapter<VendaAdapter.VendaViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VendaViewHolder {
@@ -21,7 +23,7 @@ class VendaAdapter(private val vendas: List<Venda>, private val vendaClick:(Vend
 
     override fun onBindViewHolder(holder: VendaViewHolder, position: Int) {
         val venda = vendas[position]
-        holder.bind(venda,vendaClick)
+        holder.bind(venda, vendaClick)
     }
 
     override fun getItemCount(): Int {
@@ -37,13 +39,17 @@ class VendaAdapter(private val vendas: List<Venda>, private val vendaClick:(Vend
             tvTitulo.text = venda.descricao
 
             val tvVendaValue: TextView = itemView.findViewById(R.id.tvProductValue)
-            tvVendaValue.text = venda.preco.toString()
+            tvVendaValue.text = venda.preco.formatCurrencyBR()
 
             val tvVendaDate: TextView = itemView.findViewById(R.id.tvVendaDate)
-            tvVendaDate.text = venda.dataCriacao.toString()
+            tvVendaDate.text = venda.dataCriacao.formatDateBR()
 
             val tvProductQuantity: TextView = itemView.findViewById(R.id.tvProductQuantity)
-            tvProductQuantity.text = venda.quantidadeProdutosVenda.toString()
+            val produtoPlurals = itemView.resources.getQuantityText(
+                R.plurals.plurals_produtos,
+                venda.quantidadeProdutosVenda.toInt()
+            )
+            tvProductQuantity.text = "${venda.quantidadeProdutosVenda} $produtoPlurals"
         }
     }
 

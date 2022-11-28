@@ -35,7 +35,7 @@ class ProdutoViewModel(
         }
     }
 
-    fun salvarProduto(nome: String, preco: Double, quantidade: Double, unidade: String) {
+    fun salvarProduto(nome: String, vendaId: Long, preco: Double, quantidade: Double, unidade: String) {
         _salvarProduto.value = State.Carregando()
 
         viewModelScope.launch(dispatcher) {
@@ -43,7 +43,14 @@ class ProdutoViewModel(
                 _salvarProduto.postValue(
                     State.Sucesso(
                         salvarProdutoUseCase.invoke(
-                            Produto(0, 0, quantidade, preco, unidade, nome)
+                            Produto(
+                                id = 0,
+                                vendaId = vendaId,
+                                quantidade = quantidade,
+                                preco = preco,
+                                unidade = unidade,
+                                nome = nome
+                            )
                         )
                     )
                 )

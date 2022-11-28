@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">VendasApp</string>
+    <plurals name="plurals_produtos">
+        <item quantity="one">produto</item>
+        <item quantity="other">produtos</item>
+    </plurals>
 </resources>

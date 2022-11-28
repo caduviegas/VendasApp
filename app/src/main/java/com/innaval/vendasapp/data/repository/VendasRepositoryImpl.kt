@@ -7,8 +7,9 @@ import com.innaval.vendasapp.domain.Venda
 
 class VendasRepositoryImpl(private val vendaDao: VendaDao, private val produtoDao: ProdutoDao) :
     VendasRepository {
-    override suspend fun salvarVenda(venda: Venda): Long {
-        return vendaDao.insert(venda)
+    override suspend fun salvarVenda(venda: Venda): Venda {
+        val vendaId = vendaDao.insert(venda)
+        return vendaDao.findById(vendaId)
     }
 
     override suspend fun listarVendas(): List<Venda> {
@@ -19,7 +20,7 @@ class VendasRepositoryImpl(private val vendaDao: VendaDao, private val produtoDa
         val venda = vendaDao.findById(produto.vendaId)
         val vendaAtualizada = Venda(
             venda.id,
-            venda.preco + produto.preco,
+            venda.preco + (produto.preco * produto.quantidade),
             venda.quantidadeProdutosVenda + 1,
             venda.dataCriacao,
             venda.descricao,

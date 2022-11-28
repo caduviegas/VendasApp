@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id "kotlin-parcelize"
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -59,13 +61,17 @@ dependencies {
     //Room
     def room_version = "2.4.1"
     implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
 
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
     //Koin
     def koin_android_version= "3.3.0"
+    implementation "io.insert-koin:koin-android:$koin_android_version"
     implementation "io.insert-koin:koin-android:$koin_android_version"
     implementation "io.insert-koin:koin-android-compat:$koin_android_version"
     implementation "io.insert-koin:koin-androidx-workmanager:$koin_android_version"

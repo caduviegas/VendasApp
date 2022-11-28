@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.innaval.vendasapp.R
 import com.innaval.vendasapp.domain.Produto
+import com.innaval.vendasapp.domain.Venda
+import com.innaval.vendasapp.presentation.utils.formatCurrencyBR
 
 class ProdutoAdapter(private val produtos: List<Produto>) :
     RecyclerView.Adapter<ProdutoAdapter.ProdutoViewHolder>() {
@@ -33,10 +35,10 @@ class ProdutoAdapter(private val produtos: List<Produto>) :
             tvProductName.text =produto.nome
 
             val tvProductValue: TextView = itemView.findViewById(R.id.tvProductValue)
-            tvProductValue.text = produto.preco.toString()
+            tvProductValue.text = produto.preco.formatCurrencyBR()
 
             val tvProductQuantity: TextView = itemView.findViewById(R.id.tvProductQuantity)
-            tvProductQuantity.text = produto.quantidade.toString()
+            tvProductQuantity.text = "${produto.quantidade} ${produto.unidade}"
         }
     }
 

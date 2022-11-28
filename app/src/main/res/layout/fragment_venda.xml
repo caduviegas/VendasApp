@@ -43,10 +43,11 @@
         layout="@layout/content_vendas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:layout_marginStart="@dimen/margin_12"
         android:layout_marginEnd="@dimen/margin_12"
-        android:layout_marginTop="@dimen/margin_32"
-        app:layout_constraintTop_toBottomOf="@id/headerTitle"/>
+        app:layout_constraintTop_toBottomOf="@id/headerTitle"
+        tools:layout_editor_absoluteX="12dp" />
 
     <View
         android:id="@+id/middleGuide"

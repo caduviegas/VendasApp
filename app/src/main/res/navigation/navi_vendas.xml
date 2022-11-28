@@ -33,9 +33,9 @@
 
     <fragment
         android:id="@+id/detalhesVenda"
-        android:name="com.innaval.vendasapp.presentation.ui.ProdutoFragment"
+        android:name="com.innaval.vendasapp.presentation.ui.DetalheVendaFragment"
         android:label="Detalhes das Vendas"
-        tools:layout="@layout/fragment_produto">
+        tools:layout="@layout/fragment_detalhe_venda">
 
         <action
             android:id="@+id/callNovoProduto"
