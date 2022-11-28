@@ -28,7 +28,7 @@
 
  Ao clicar no botão de "+" o usuário é direcionado para a Tela de Adição do Produto. Nesta Tela é possivel adicionar: O nome do produto, o preço, a quantidade de produtos e (caso possua) a unidade de médidas
 
-<img src="img/TelaDetalhesVendaPreenchida.png" width="200">
+<img src="img/TelaDetalhesVendasPreenchida.png" width="200">
  
  Ao dar o check o usuário é direcionado novamente para a tela de Detalhes da Venda com a atualização do cadastro que ele fez.
 
