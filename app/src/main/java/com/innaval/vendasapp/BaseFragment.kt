@@ -14,6 +14,7 @@ open class BaseFragment(private val layoutId: Int) : Fragment(layoutId) {
         }
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requireActivity().onBackPressedDispatcher.addCallback(
